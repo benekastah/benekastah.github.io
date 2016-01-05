@@ -31,7 +31,41 @@ var randomColor = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     var answerEl = document.querySelector('#answer');
+    var direction = {y: 1, x: 1};
+
     setInterval(function () {
+        var distance = 1;
+        var style = window.getComputedStyle(answerEl);
+        var maxX = window.innerWidth - parseInt(style.width || 0, 10);
+        var maxY = window.innerHeight - parseInt(style.height || 0, 10);
+        var x, y;
+        if (direction.x < 0) {
+            x = Math.max(parseInt(style.left || 0, 10) - distance, 0);
+            if (x === 0) {
+                direction.x *= -1;
+            }
+        } else {
+            x = Math.min(parseInt(style.left || 0, 10) + distance, maxX);
+            if (x === maxX) {
+                direction.x *= -1;
+            }
+        }
+        if (direction.y < 0) {
+            y = Math.max(parseInt(style.top || 0, 10) - distance, 0);
+            if (y === 0) {
+                direction.y *= -1;
+            }
+        } else {
+            y = Math.min(parseInt(style.top || 0, 10) + distance, maxY);
+            if (y === maxY) {
+                direction.y *= -1;
+            }
+        }
+        answerEl.style.left = x + 'px';
+        answerEl.style.top = y + 'px';
+    }, 25);
+
+    var messageColorChange = function () {
         document.body.style.backgroundColor = randomColor();
         answerEl.style.color = randomColor();
         var answers = [randomAnswer(), randomAnswer()];
@@ -41,5 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var answer = answers.join(' ') + '.';
         answer = answer[0].toUpperCase() + answer.slice(1);
         answerEl.innerHTML = answer;
-    }, 5000);
+    };
+    setInterval(messageColorChange, 5000);
+    messageColorChange();
 });

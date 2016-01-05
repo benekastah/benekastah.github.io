@@ -1,8 +1,17 @@
 
 body {
+    margin: 0;
+    padding: 0;
     transition: background-color 5s;
+    background-color: white;
 }
 
 h1#answer {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: color 5s;
+    color: black;
 }
