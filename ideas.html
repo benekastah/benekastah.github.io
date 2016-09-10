@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Do you have good ideas?</title>
+
+        <link rel="stylesheet" type="text/css" href="/index.css" />
+    </head>
+
+    <body>
+        <h1>Can a machine judge good ideas?</h1>
+
+        <p>Judging which ideas are good is something ordinarily put in the
+        domain of humans, and even then humans often can't agree on which ideas
+        are good and which aren't. Can we use software to judge which ideas are
+        good? Using some innovative heuristics, I believe I have come across a
+        way to do this.</p>
+
+        <form id="idea-form">
+            <label>
+                Go ahead! Put in an idea. When you submit, the program will
+                tell you if your idea is good or not.
+                <br />
+                <textarea rows="10" cols="80"></textarea>
+            </label>
+
+            <br />
+            <button type="submit">Is it good?</button>
+        </form>
+
+        <p id="result"></p>
+
+        <script>(function () {
+            var form = document.getElementById('idea-form');
+            var result = document.getElementById('result');
+            form.addEventListener('submit', function (ev) {
+                ev.preventDefault();
+                result.innerHTML = 'Computing...';
+                setTimeout(function () {
+                    result.innerHTML = '<h2>No.</h2>';
+                }, Math.floor(Math.random() * 5000));
+            });
+        })();</script>
+    </body>
+</html>
