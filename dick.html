@@ -284,7 +284,7 @@
             button.onclick = function () {
                 var action = document.getElementById('action');
                 action.innerHTML = getRandom(VERBS);
-                answerFontSize += 1;
+                answerFontSize -= 1;
                 document.querySelector('#answer').style.fontSize = answerFontSize + 'px';
                 submitFontSize += 1;
                 document.querySelector('#submit').style.fontSize = submitFontSize + 'px';
