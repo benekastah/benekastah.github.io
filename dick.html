@@ -11,7 +11,7 @@
     <body>
         <h1 id="answer">You can <strong id="action"></strong> a dick.</h1>
 
-        <button type="button" id="submit">What can you do to a dick?</button>
+        <button type="button" id="submit">I did it. Now what?</button>
 
         <script>
             var VERBS = [
@@ -267,12 +267,14 @@
                 'withhold',
                 'womanize',
                 'wrap',
-                'wrap',
                 'wrench',
                 'wrestle',
                 'yoghurt',
                 'yogurt',
             ];
+
+            var answerFontSize = 80;
+            var submitFontSize = 40;
 
             var getRandom = function (list) {
                 return list[Math.floor(Math.random() * list.length)];
@@ -282,6 +284,10 @@
             button.onclick = function () {
                 var action = document.getElementById('action');
                 action.innerHTML = getRandom(VERBS);
+                answerFontSize += 1;
+                document.querySelector('#answer').style.fontSize = answerFontSize + 'px';
+                submitFontSize += 1;
+                document.querySelector('#submit').style.fontSize = submitFontSize + 'px';
             };
             button.onclick();
         </script>
