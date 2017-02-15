@@ -1,11 +1,11 @@
 var answers = [
-    'Happy Valentine\'s Day, Chris!!!!',
-    'You are the best.',
-    'I really appreciate how patient you have been with me.',
-    'You have been so great with Emi recently :)  You are an awesome mom',
-    'I love you!!!1',
-    'I need what\'s in your pants',
-    'Thanks for everything you do!!! Here\'s to another great year <3',
+    'quite',
+    'very',
+    'such',
+    'yes',
+    'indubitably',
+    'doubtless',
+    'unwaveringly',
 ];
 
 var hexChars = [];
